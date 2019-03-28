@@ -11,6 +11,10 @@ class Api::MembersController < ApplicationController
   def create
   end
 
+  def my_members
+    render json: User.liked(current_user.liked_members)
+  end
+
   def update
     current_user.liked_members << params[:id].to_i
     current_user.save

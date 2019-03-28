@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :members
+    get 'my_members', to: 'members#my_members'
   end
 end
