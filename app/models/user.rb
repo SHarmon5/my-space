@@ -18,4 +18,5 @@ class User < ActiveRecord::Base
     ids = ids.empty? ? [0] : ids
     Member.where("id IN (?)", ids)
   end
+  
 end

@@ -43,18 +43,25 @@ class Navbar extends React.Component {
     return (
       <div>
         <Menu pointing secondary>
-          <Link to='/'>
+          <Link to='/my_space'>
             <Menu.Item
-              name='home'
-              id='home'
-              active={this.props.location.pathname === '/'}
+              name='my space'
+              id='myspace'
+              active={this.props.location.pathname === '/my_space'}
             />
           </Link>
           <Link to='/'>
             <Menu.Item
+              name='Add new friends'
+              id='home'
+              active={this.props.location.pathname === '/'}
+            />
+          </Link>
+          <Link to='/my_members'>
+            <Menu.Item
               name='Friends'
               id='addFriend'
-              active={this.props.location.pathname === '/addFriend'}
+              active={this.props.location.pathname === '/my_members'}
             />
           </Link>
           

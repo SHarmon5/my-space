@@ -8,11 +8,12 @@ class Home extends React.Component {
   
   componentDidMount() {
     axios.get('/api/members')
-      .then(res => this.setState({ members: res.data, }))
+      .then( res => this.setState({ members: res.data, }))
   }
   
   sample = () => {
     const { members, } = this.state;
+
     if (members.length) {
       const index = Math.floor(Math.random() * members.length);
       return members[index];
@@ -23,18 +24,19 @@ class Home extends React.Component {
 
   downVote = (id) => {
     let { members, } = this.state
-    this.setState({ members: members.filter( m => m.id !== id ), })
+    this.setState({ members: members.filter( m => m.id !== id ) })
   }
 
   upVote = (id) => {
     let { members, } = this.state;
     axios.put(`/api/members/${id}`)
-      .then( () => this.setState({ members: members.filter( m => m.id !== id ), }) )
+      .then( res => this.setState({ members: members.filter( m => m.id !== id ) }) )
   }
   
   
   render() {
     const mem = this.sample();
+
     if (mem) {
       return (
         <div>

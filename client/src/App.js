@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
-import Home from './component/Home'
-import NoMatch from './component/NoMatch'
-import Navbar from './component/Navbar'
-import Login from './component/Login'
-import MyFriends from './component/MyFriends'
-import FetchUser from './component/FetchUser'
-import ProtectedRoute from './component/ProtectedRoute';
-import Register from './component/Register'
+import React from 'react';
+import Home from './components/Home'
+import NoMatch from './components/NoMatch'
+import Navbar from './components/Navbar'
+import Login from './components/Login'
+import MyFriends from './components/MyFriends'
+import FetchUser from './components/FetchUser'
+import MySpace from './components/MySpace'
+import ProtectedRoute from './components/ProtectedRoute';
+import Register from './components/Register'
 import { Switch, Route, } from 'react-router-dom'
 import { Container, } from "semantic-ui-react"
 
 const App = () => (
   <>
+    <Navbar />
     <FetchUser>
-      <Navbar />
       <Container>
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
-          <ProtectedRoute exact path="/my_friends" component={MyFriends} />
+          <ProtectedRoute exact path="/my_members" component={MyFriends} />
+          <Route exact path="/my_space" component={MySpace} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route omponent={NoMatch} />
+          <Route component={NoMatch} />
         </Switch>
       </Container>
     </FetchUser>
